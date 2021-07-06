@@ -18,6 +18,8 @@ public class Post {
     private double discount;
     private LocalDate date = LocalDate.now();
 
+    public Post(){}
+
     public LocalDate getDate() {
         return date;
     }
