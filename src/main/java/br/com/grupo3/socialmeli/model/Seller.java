@@ -15,7 +15,6 @@ public class Seller extends Person{
     public Seller() {
     }
 
-
     public int getFollowersCount() {
         return followersCount;
     }

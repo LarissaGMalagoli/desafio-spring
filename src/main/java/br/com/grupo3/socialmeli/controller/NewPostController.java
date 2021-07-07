@@ -27,7 +27,6 @@ public class NewPostController {
         Post post = postForm.converter(sellerRepository);
         postRepository.save(post);
         URI uri = uriBuilder.path("/post/{id}").buildAndExpand(post.getPostId()).toUri();
-        postRepository.save(post);
         return ResponseEntity.created(uri).body(post);
     }
 }

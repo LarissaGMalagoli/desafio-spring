@@ -7,9 +7,11 @@ import br.com.grupo3.socialmeli.repository.PostRepository;
 import br.com.grupo3.socialmeli.repository.SellerRepository;
 import com.sun.istack.NotNull;
 
+import javax.validation.constraints.NotEmpty;
+import java.util.Optional;
+
 public class PostForm {
 
-    //Nao tem ID do user/post nem createdAt no payload, pois os ID's sao gerados automaticamente pelo banco, e o date é um date.now();
     @NotNull
     private Long userId;
     private Product detail;
@@ -18,10 +20,16 @@ public class PostForm {
     @NotNull
     private Boolean hasPromo;
     private double discount;
-
     public Post converter(SellerRepository sellerRepository){
-        Seller seller = sellerRepository.getById(userId);
-        return new Post(seller, detail, category, price, hasPromo, discount);
+        Optional<Seller> seller = sellerRepository.findById(userId);
+        if(seller.isEmpty()){
+            throw new RuntimeException("User not found.");
+        }
+        return new Post(seller.get(), detail, category, price, hasPromo, discount);
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
     public void setDetail(Product detail) {
         this.detail = detail;

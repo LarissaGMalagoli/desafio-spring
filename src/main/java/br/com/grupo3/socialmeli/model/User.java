@@ -10,9 +10,7 @@ public class User extends Person{
     private List<Seller> following;
 
     public User() {
-
     }
-
 
     public List<Seller> getFollowing() {
         return following;
