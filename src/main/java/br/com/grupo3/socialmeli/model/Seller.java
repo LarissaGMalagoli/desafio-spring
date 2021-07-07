@@ -1,6 +1,7 @@
 package br.com.grupo3.socialmeli.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -8,9 +9,9 @@ public class Seller extends Person{
 
     private int followersCount;
     @OneToMany
-    private List<Post> postList;
+    private List<Post> postList = new ArrayList<>();
     @ManyToMany
-    private List<User> followers;
+    private List<User> followers = new ArrayList<>();
 
     public Seller() {
     }
@@ -39,4 +40,6 @@ public class Seller extends Person{
     public void setFollowers(List<User> followers) {
         this.followers = followers;
     }
+
+
 }
