@@ -52,4 +52,9 @@ public class FollowersController {
     public List<Seller> findSellers(){
         return sellerRepository.findAll();
     }
+
+    @GetMapping("/users")
+    public List<User> findUsers(){
+        return userRepository.findAll();
+    }
 }
