@@ -8,7 +8,7 @@ import java.util.List;
 public class Seller extends Person{
 
     private int followersCount = 0;
-    @OneToMany
+    @OneToMany(mappedBy = "seller")
     private List<Post> postList = new ArrayList<>();
     @ManyToMany
     private List<User> followers = new ArrayList<>();

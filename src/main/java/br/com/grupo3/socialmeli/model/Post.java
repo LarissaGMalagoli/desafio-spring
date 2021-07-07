@@ -8,10 +8,12 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Seller seller;
+
     @OneToOne(cascade = CascadeType.ALL)
     private Product product;
+
     private int category;
     private double price;
     private boolean hasPromo;

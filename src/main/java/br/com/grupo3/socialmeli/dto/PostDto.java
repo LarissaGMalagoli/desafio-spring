@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class PostDto {
 
     private Long postId;
-    private Seller seller;
+    private SellerDto sellerDto;
     private Product product;
     private int category;
     private double price;
@@ -19,7 +19,7 @@ public class PostDto {
 
     public PostDto(Post post) {
         this.postId = post.getPostId();
-        this.seller = post.getSeller();
+        this.sellerDto = new SellerDto(post.getSeller());
         this.product = post.getProduct();
         this.category = post.getCategory();
         this.price = post.getPrice();
@@ -32,8 +32,8 @@ public class PostDto {
         return postId;
     }
 
-    public Seller getSeller() {
-        return seller;
+    public SellerDto getSellerDto() {
+        return sellerDto;
     }
 
     public Product getProduct() {
