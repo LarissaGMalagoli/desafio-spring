@@ -8,7 +8,7 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
-    @OneToOne
+    @ManyToOne
     private Seller seller;
     @OneToOne
     private Product product;
