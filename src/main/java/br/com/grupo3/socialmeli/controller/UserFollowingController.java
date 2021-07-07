@@ -20,7 +20,7 @@ public class UserFollowingController {
     }
 
     @GetMapping("{userID}/followed/list")
-    public ResponseEntity<UserFollowingDto> getSellers(@PathVariable Long userID) throws NotFoundException {
+    public ResponseEntity<UserFollowingDto> getSellers(@PathVariable Long userID) {
 
         return ResponseEntity.ok(userFollowingService.getSellerFollowing(userID));
     }
