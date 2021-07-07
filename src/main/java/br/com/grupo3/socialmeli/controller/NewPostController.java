@@ -31,17 +31,14 @@ public class NewPostController {
 
     @PostMapping("/products/newpost")
     public ResponseEntity<PostDto> newPost(@RequestBody @Valid PostForm postForm, UriComponentsBuilder uriBuilder){
-        Post post = postForm.converter(sellerService);
-        postRepository.save(post);
-        //TODO: service que add o post que a gente acabou de criar;
+        Post post = postService.addPost(postForm);
         URI uri = uriBuilder.path("/post/{id}").buildAndExpand(post.getPostId()).toUri();
         return ResponseEntity.created(uri).body(new PostDto(post));
     }
 
     @PostMapping("/products/newpromopost")
     public ResponseEntity<PostDto> newPromoPost(@RequestBody @Valid PostForm postForm, UriComponentsBuilder uriBuilder){
-        Post post = postForm.converterPromotionPost(sellerService);
-        postRepository.save(post);
+        Post post = postService.addPromotionPost(postForm);
         URI uri = uriBuilder.path("/post/{id}").buildAndExpand(post.getPostId()).toUri();
         return ResponseEntity.created(uri).body(new PostDto(post));
     }
