@@ -6,6 +6,8 @@ import br.com.grupo3.socialmeli.model.User;
 import br.com.grupo3.socialmeli.repository.SellerRepository;
 import br.com.grupo3.socialmeli.repository.UserRepository;
 import br.com.grupo3.socialmeli.service.FollowService;
+import br.com.grupo3.socialmeli.service.SellerService;
+import br.com.grupo3.socialmeli.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,22 +28,17 @@ public class FollowController {
     UserRepository userRepository;
     @Autowired
     FollowService followService;
+    @Autowired
+    UserService userService;
+    @Autowired
+    SellerService sellerService;
 
     @Transactional
-    @PostMapping("/users/{userId}/follow/{userIdToFollow}}")
-    public ResponseEntity<UserDto> followUser(@PathVariable("userId") Long userId, @PathVariable("userIdToFollow") Long userIdToFollow, UriComponentsBuilder uriBuilder ){
+    @PostMapping("/users/{userId}/follow/{userIdToFollow}")
+    public ResponseEntity<UserDto> followUser(@PathVariable Long userId, @PathVariable Long userIdToFollow, UriComponentsBuilder uriBuilder ){
 
-        Optional<User> optUsuario = userRepository.findById(userId);
-        Optional<Seller> optVendedor = sellerRepository.findById(userIdToFollow);
+        followService.follow(userId, userIdToFollow);
 
-        if (optUsuario.isEmpty() && optVendedor.isEmpty()){
-            return ResponseEntity.notFound().build();
-        }
-
-        User usuario = userRepository.getById(userId);
-        Seller vendedor = sellerRepository.getById(userIdToFollow);
-
-        followService.follow(usuario,vendedor);
-        return ResponseEntity.ok().body(new UserDto(usuario));
+        return ResponseEntity.ok().body(new UserDto(userService.getById(userId)));
     }
 }

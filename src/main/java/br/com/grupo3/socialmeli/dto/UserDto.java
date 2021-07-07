@@ -4,17 +4,18 @@ import br.com.grupo3.socialmeli.model.Seller;
 import br.com.grupo3.socialmeli.model.User;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserDto {
 
     private Long userId;
     private String userName;
-    private List<Seller> following;
+    private List<String> followingNames;
 
     public UserDto(User user) {
         this.userId = user.getUserId();
         this.userName = user.getUserName();
-        this.following = user.getFollowing();
+        this.followingNames = user.getFollowing().stream().map(Seller::getUserName).collect(Collectors.toList());
     }
 
     public Long getUserId() {
@@ -25,7 +26,7 @@ public class UserDto {
         return userName;
     }
 
-    public List<Seller> getFollowing() {
-        return following;
+    public List<String> getFollowingNames() {
+        return followingNames;
     }
 }
