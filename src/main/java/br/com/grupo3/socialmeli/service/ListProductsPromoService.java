@@ -25,5 +25,7 @@ public class ListProductsPromoService {
                 .stream()
                 .filter(Post::isHasPromo)
                 .collect(Collectors.toList());
+
+        return new ListProductsPromoDto(seller.getUserId(), seller.getUserName(), posts);
     }
 }
