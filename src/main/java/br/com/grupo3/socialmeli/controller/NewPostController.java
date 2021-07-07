@@ -4,6 +4,7 @@ import br.com.grupo3.socialmeli.controller.form.PostForm;
 import br.com.grupo3.socialmeli.model.Post;
 import br.com.grupo3.socialmeli.repository.PostRepository;
 import br.com.grupo3.socialmeli.repository.SellerRepository;
+import br.com.grupo3.socialmeli.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,12 +20,14 @@ public class NewPostController {
 
     @Autowired
     PostRepository postRepository;
+
+
     @Autowired
-    SellerRepository sellerRepository;
+    SellerService sellerService;
 
     @PostMapping("/products/newpost")
     public ResponseEntity<Post> newPost(@RequestBody @Valid PostForm postForm, UriComponentsBuilder uriBuilder){
-        Post post = postForm.converter(sellerRepository);
+        Post post = postForm.converter(sellerService);
         postRepository.save(post);
         URI uri = uriBuilder.path("/post/{id}").buildAndExpand(post.getPostId()).toUri();
         return ResponseEntity.created(uri).body(post);
