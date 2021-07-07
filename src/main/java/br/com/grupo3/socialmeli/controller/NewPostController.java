@@ -1,6 +1,7 @@
 package br.com.grupo3.socialmeli.controller;
 
 import br.com.grupo3.socialmeli.controller.form.PostForm;
+import br.com.grupo3.socialmeli.dto.PostDto;
 import br.com.grupo3.socialmeli.model.Post;
 import br.com.grupo3.socialmeli.repository.PostRepository;
 import br.com.grupo3.socialmeli.repository.SellerRepository;
