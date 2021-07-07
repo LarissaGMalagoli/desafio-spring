@@ -6,12 +6,12 @@ public class UserFollowingDto {
 
     private Long userId;
     private String userName;
-    private List<SellerFollowedDto> sellerDtos;
+    private List<SellerFollowedDto> followed;
 
     public UserFollowingDto(Long userId, String userName, List<SellerFollowedDto> sellerDtos) {
         this.userId = userId;
         this.userName = userName;
-        this.sellerDtos = sellerDtos;
+        this.followed = sellerDtos;
     }
 
     public Long getUserId() {
@@ -30,11 +30,11 @@ public class UserFollowingDto {
         this.userName = userName;
     }
 
-    public List<SellerFollowedDto> getSellerDtos() {
-        return sellerDtos;
+    public List<SellerFollowedDto> getFollowed() {
+        return followed;
     }
 
-    public void setSellerDtos(List<SellerFollowedDto> sellerDtos) {
-        this.sellerDtos = sellerDtos;
+    public void setFollowed(List<SellerFollowedDto> followed) {
+        this.followed = followed;
     }
 }
