@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 public class Seller extends Person{
 
-    private int followersCount;
+    private int followersCount = 0;
     @OneToMany
     private List<Post> postList = new ArrayList<>();
     @ManyToMany
@@ -18,7 +18,6 @@ public class Seller extends Person{
     public Seller(String userName){
         setUserName(userName);
     }
-
 
     public int getFollowersCount() {
         return followersCount;
@@ -43,6 +42,5 @@ public class Seller extends Person{
     public void setFollowers(List<User> followers) {
         this.followers = followers;
     }
-
 
 }

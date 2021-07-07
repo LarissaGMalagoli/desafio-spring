@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 public class User extends Person{
 
-    @OneToMany
+    @ManyToMany
     private List<Seller> following = new ArrayList<>();
 
     public User() {

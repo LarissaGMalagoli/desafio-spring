@@ -20,13 +20,16 @@ public class PostForm {
     private Product detail;
     private int category;
     private double price;
-    @NotNull
-    private Boolean hasPromo;
     private double discount;
 
     public Post converter(SellerService sellerService){
         Seller seller = sellerService.getById(userId);
-        return new Post(seller, detail, category, price, hasPromo, discount);
+        return new Post(seller, detail, category, price, false, 0.0);
+    }
+
+    public Post converterPromotionPost(SellerService sellerService){
+        Seller seller = sellerService.getById(userId);
+        return new Post(seller, detail, category, price, true, discount);
     }
 
     public void setUserId(Long userId) {
@@ -44,9 +47,6 @@ public class PostForm {
         this.price = price;
     }
 
-    public void setHasPromo(Boolean hasPromo) {
-        this.hasPromo = hasPromo;
-    }
 
     public void setDiscount(double discount) {
         this.discount = discount;

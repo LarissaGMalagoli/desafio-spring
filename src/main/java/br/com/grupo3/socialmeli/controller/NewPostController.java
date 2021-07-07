@@ -21,13 +21,20 @@ public class NewPostController {
     @Autowired
     PostRepository postRepository;
 
-
     @Autowired
     SellerService sellerService;
 
     @PostMapping("/products/newpost")
     public ResponseEntity<Post> newPost(@RequestBody @Valid PostForm postForm, UriComponentsBuilder uriBuilder){
         Post post = postForm.converter(sellerService);
+        postRepository.save(post);
+        URI uri = uriBuilder.path("/post/{id}").buildAndExpand(post.getPostId()).toUri();
+        return ResponseEntity.created(uri).body(post);
+    }
+
+    @PostMapping("/products/newpromopost")
+    public ResponseEntity<Post> newPromoPost(@RequestBody @Valid PostForm postForm, UriComponentsBuilder uriBuilder){
+        Post post = postForm.converterPromotionPost(sellerService);
         postRepository.save(post);
         URI uri = uriBuilder.path("/post/{id}").buildAndExpand(post.getPostId()).toUri();
         return ResponseEntity.created(uri).body(post);
