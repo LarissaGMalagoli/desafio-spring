@@ -8,14 +8,14 @@ import java.time.LocalDate;
 
 public class PostDto {
 
-    private Long postId;
-    private SellerDto sellerDto;
-    private Product product;
-    private int category;
-    private double price;
-    private boolean hasPromo;
-    private double discount;
-    private LocalDate date;
+    private final Long postId;
+    private final SellerDto sellerDto;
+    private final Product product;
+    private final int category;
+    private final double price;
+    private final boolean hasPromo;
+    private final double discount;
+    private final LocalDate date;
 
     public PostDto(Post post) {
         this.postId = post.getPostId();
