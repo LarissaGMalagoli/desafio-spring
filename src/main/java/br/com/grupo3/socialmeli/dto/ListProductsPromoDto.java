@@ -1,15 +1,13 @@
 package br.com.grupo3.socialmeli.dto;
 
-import br.com.grupo3.socialmeli.model.Post;
-
 import java.util.List;
 
 public class ListProductsPromoDto {
     private Long userId;
     private String userName;
-    private List<Post> posts;
+    private List<PostPromoDto> posts;
 
-    public ListProductsPromoDto(Long userId, String userName, List<Post> posts) {
+    public ListProductsPromoDto(Long userId, String userName, List<PostPromoDto> posts) {
         this.userId = userId;
         this.userName = userName;
         this.posts = posts;
@@ -23,7 +21,7 @@ public class ListProductsPromoDto {
         return userName;
     }
 
-    public List<Post> getPosts() {
+    public List<PostPromoDto> getPosts() {
         return posts;
     }
 }
