@@ -18,7 +18,18 @@ public class Post {
     private double discount;
     private LocalDate date = LocalDate.now();
 
-    public Post(){}
+    public Post(){
+    }
+
+    public Post(Seller seller, Product product, int category, double price, boolean hasPromo, double discount) {
+        this.seller = seller;
+        this.product = product;
+        this.category = category;
+        this.price = price;
+        this.hasPromo = hasPromo;
+        this.discount = discount;
+        this.date = LocalDate.now();
+    }
 
     public LocalDate getDate() {
         return date;
