@@ -3,23 +3,22 @@ package br.com.grupo3.socialmeli.controller.form;
 import br.com.grupo3.socialmeli.model.Post;
 import br.com.grupo3.socialmeli.model.Product;
 import br.com.grupo3.socialmeli.model.Seller;
-import br.com.grupo3.socialmeli.repository.PostRepository;
-import br.com.grupo3.socialmeli.repository.SellerRepository;
 import br.com.grupo3.socialmeli.service.SellerService;
-import br.com.grupo3.socialmeli.service.UserService;
-import com.sun.istack.NotNull;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.constraints.NotEmpty;
-import java.util.Optional;
+import javax.validation.constraints.NotNull;
 
 public class PostForm {
 
     @NotNull
     private Long userId;
+    @NotNull
     private Product detail;
+    @NotNull
     private int category;
+    @NotNull
     private double price;
+    @NotNull
     private double discount;
 
     public Post converter(SellerService sellerService){
