@@ -11,7 +11,7 @@ public class UserDto {
     private Long userId;
     private String userName;
     private List<String> followingNames;
-
+  
     public UserDto(User user) {
         this.userId = user.getUserId();
         this.userName = user.getUserName();

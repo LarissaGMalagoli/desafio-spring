@@ -8,17 +8,30 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
-    @OneToOne
+    @ManyToOne
     private Seller seller;
-    @OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Product product;
+
     private int category;
     private double price;
     private boolean hasPromo;
     private double discount;
     private LocalDate date = LocalDate.now();
 
-    public Post(){}
+    public Post(){
+    }
+
+    public Post(Seller seller, Product product, int category, double price, boolean hasPromo, double discount) {
+        this.seller = seller;
+        this.product = product;
+        this.category = category;
+        this.price = price;
+        this.hasPromo = hasPromo;
+        this.discount = discount;
+        this.date = LocalDate.now();
+    }
 
     public LocalDate getDate() {
         return date;
