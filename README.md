@@ -7,8 +7,12 @@
 
 ## Founders
 
-[Murilo Preccaro](http://github.com/mogmeli) 🧙
-
-[Wagner Negrão](https://github.com/wagnernegrao)
+[João Magalhaes](https://github.com/joutavm)
 
 [Larissa Malagoli](https://github.com/LarissaGMalagoli)
+
+[Murilo Preccaro](http://github.com/mogmeli) 🧙
+
+[Pedro Cattel](https://github.com/pedro-cattel)
+
+[Wagner Negrão](https://github.com/wagnernegrao)
