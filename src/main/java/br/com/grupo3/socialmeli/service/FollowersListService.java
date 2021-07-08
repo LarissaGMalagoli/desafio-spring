@@ -3,12 +3,17 @@ package br.com.grupo3.socialmeli.service;
 import br.com.grupo3.socialmeli.dto.FollowersListSellerDto;
 import br.com.grupo3.socialmeli.dto.FollowersListUserDto;
 import br.com.grupo3.socialmeli.model.Seller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class FollowersListService {
-    final SellerService sellerService;
+
+    @Autowired
+    SellerService sellerService;
 
     public FollowersListService(SellerService sellerService) {
         this.sellerService = sellerService;
