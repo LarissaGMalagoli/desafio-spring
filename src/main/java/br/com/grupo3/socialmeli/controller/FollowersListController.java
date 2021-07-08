@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/followerslistcontroller")
 public class FollowersListController {
 
     @Autowired
@@ -23,7 +22,7 @@ public class FollowersListController {
     @Autowired
     FollowersListService followersListService;
 
-    @GetMapping("/{userId}/followers/list")
+    @GetMapping("/users/{userId}/followers/list")
     public FollowersListSellerDto orderSellerFollowers(@PathVariable Long userId, @RequestParam(required = false) String order){
         return followersListService.orderSellerFollowers(userId, order);
     }
