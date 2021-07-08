@@ -10,3 +10,5 @@
 [Murilo Preccaro](http://github.com/mogmeli) 🧙
 
 [Wagner Negrão](https://github.com/wagnernegrao)
+
+[Larissa Malagoli](https://github.com/LarissaGMalagoli)
