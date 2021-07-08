@@ -9,10 +9,7 @@ import br.com.grupo3.socialmeli.service.FollowersListService;
 import br.com.grupo3.socialmeli.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -44,9 +41,14 @@ public class FollowersListController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/{userId}/followers/list")
+    @GetMapping("/{userId}/followers/list1")
     public FollowersListSellerDto getFollowersCount(@PathVariable Long userId){
-        return followersListService.getSellerFollowing(userId);
+        return followersListService.getSellerFollowers(userId);
+    }
+
+    @GetMapping("/{userId}/followers/list")
+    public FollowersListSellerDto orderSellerFollowers(@PathVariable Long userId, @RequestParam String order){
+        return followersListService.orderSellerFollowers(userId, order);
     }
 
     @GetMapping("/sellers")
