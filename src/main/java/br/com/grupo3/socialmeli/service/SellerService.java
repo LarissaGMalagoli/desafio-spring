@@ -17,7 +17,7 @@ public class SellerService {
     public Seller getById(Long id){
         Optional<Seller> sellerOptional = sellerRepository.findById(id);
         if (sellerOptional.isEmpty()) {
-            throw new PersonNotFoundException("Seller not found");
+            throw new PersonNotFoundException("Seller not found", id);
         }
         return sellerOptional.get();
     }
