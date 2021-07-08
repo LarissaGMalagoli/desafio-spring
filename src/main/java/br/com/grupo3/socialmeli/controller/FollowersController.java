@@ -15,11 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class FollowersController {
 
     @Autowired
-    SellerRepository sellerRepository;
-    @Autowired
-    UserRepository userRepository;
-
-    @Autowired
     SellerService sellerService;
 
     @GetMapping("/users/{userId}/followers/count")
