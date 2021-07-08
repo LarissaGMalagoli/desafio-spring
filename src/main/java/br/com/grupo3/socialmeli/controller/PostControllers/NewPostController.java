@@ -1,10 +1,9 @@
-package br.com.grupo3.socialmeli.controller;
+package br.com.grupo3.socialmeli.controller.PostControllers;
 
 import br.com.grupo3.socialmeli.controller.form.PostForm;
 import br.com.grupo3.socialmeli.dto.PostDto;
 import br.com.grupo3.socialmeli.model.Post;
 import br.com.grupo3.socialmeli.repository.PostRepository;
-import br.com.grupo3.socialmeli.repository.SellerRepository;
 import br.com.grupo3.socialmeli.service.PostService;
 import br.com.grupo3.socialmeli.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;

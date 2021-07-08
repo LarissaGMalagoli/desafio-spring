@@ -1,4 +1,4 @@
-package br.com.grupo3.socialmeli.controller;
+package br.com.grupo3.socialmeli.controller.PostControllers;
 
 import br.com.grupo3.socialmeli.dto.ListProductsPromoDto;
 import br.com.grupo3.socialmeli.service.ListProductsPromoService;

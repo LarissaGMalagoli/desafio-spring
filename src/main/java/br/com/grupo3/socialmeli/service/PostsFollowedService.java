@@ -1,6 +1,6 @@
 package br.com.grupo3.socialmeli.service;
 
-import br.com.grupo3.socialmeli.controller.PostSort;
+import br.com.grupo3.socialmeli.controller.PostControllers.util.PostSort;
 import br.com.grupo3.socialmeli.model.Post;
 import br.com.grupo3.socialmeli.model.Seller;
 import br.com.grupo3.socialmeli.model.User;

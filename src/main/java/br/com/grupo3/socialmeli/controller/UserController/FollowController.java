@@ -1,4 +1,4 @@
-package br.com.grupo3.socialmeli.controller;
+package br.com.grupo3.socialmeli.controller.UserController;
 
 import br.com.grupo3.socialmeli.dto.UserDto;
 import br.com.grupo3.socialmeli.model.Seller;

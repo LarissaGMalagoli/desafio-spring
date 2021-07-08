@@ -1,6 +1,6 @@
 package br.com.grupo3.socialmeli.service;
 
-import br.com.grupo3.socialmeli.controller.FollowersListSort;
+import br.com.grupo3.socialmeli.controller.UserController.util.FollowersListSort;
 import br.com.grupo3.socialmeli.dto.FollowersListSellerDto;
 import br.com.grupo3.socialmeli.dto.FollowersListUserDto;
 import br.com.grupo3.socialmeli.model.Seller;

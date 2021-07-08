@@ -1,4 +1,4 @@
-package br.com.grupo3.socialmeli.controller;
+package br.com.grupo3.socialmeli.controller.PostControllers.util;
 
 import br.com.grupo3.socialmeli.model.Post;
 
