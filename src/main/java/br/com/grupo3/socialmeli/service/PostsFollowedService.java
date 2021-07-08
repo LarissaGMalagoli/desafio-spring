@@ -34,6 +34,8 @@ public class PostsFollowedService {
     }
 
     private Comparator<Post> getComparator(String order){
+        if (order == null)
+            return PostSort.DATA_ASC.getComparator();
         if (order.equals("date_desc"))
             return PostSort.DATA_DESC.getComparator();
         return PostSort.DATA_ASC.getComparator();
