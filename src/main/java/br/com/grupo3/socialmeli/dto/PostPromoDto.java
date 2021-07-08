@@ -2,24 +2,20 @@ package br.com.grupo3.socialmeli.dto;
 
 import br.com.grupo3.socialmeli.model.Post;
 import br.com.grupo3.socialmeli.model.Product;
-import br.com.grupo3.socialmeli.model.Seller;
 
 import java.time.LocalDate;
 
-public class PostDto {
+public class PostPromoDto {
+    private Long postId;
+    private Product product;
+    private int category;
+    private double price;
+    private boolean hasPromo;
+    private double discount;
+    private LocalDate date = LocalDate.now();
 
-    private final Long postId;
-    private final SellerDto sellerDto;
-    private final Product product;
-    private final int category;
-    private final double price;
-    private final boolean hasPromo;
-    private final double discount;
-    private final LocalDate date;
-
-    public PostDto(Post post) {
+    public PostPromoDto(Post post) {
         this.postId = post.getPostId();
-        this.sellerDto = new SellerDto(post.getSeller());
         this.product = post.getProduct();
         this.category = post.getCategory();
         this.price = post.getPrice();
@@ -30,10 +26,6 @@ public class PostDto {
 
     public Long getPostId() {
         return postId;
-    }
-
-    public SellerDto getSellerDto() {
-        return sellerDto;
     }
 
     public Product getProduct() {

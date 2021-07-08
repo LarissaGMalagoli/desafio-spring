@@ -8,14 +8,16 @@ import java.util.List;
 public class Seller extends Person{
 
     private int followersCount = 0;
-    @OneToMany
+    @OneToMany(mappedBy = "seller")
     private List<Post> postList = new ArrayList<>();
-    @ManyToMany
+    @ManyToMany(mappedBy = "following")
     private List<User> followers = new ArrayList<>();
 
     public Seller() {
     }
-
+    public Seller(String userName){
+        setUserName(userName);
+    }
 
     public int getFollowersCount() {
         return followersCount;
@@ -40,6 +42,5 @@ public class Seller extends Person{
     public void setFollowers(List<User> followers) {
         this.followers = followers;
     }
-
 
 }
