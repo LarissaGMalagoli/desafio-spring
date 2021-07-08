@@ -11,7 +11,7 @@
 
 [Larissa Malagoli](https://github.com/LarissaGMalagoli)
 
-[Murilo Preccaro](http://github.com/mogmeli) 🧙
+[Murilo Preccaro](http://github.com/mogueno) 🧙
 
 [Pedro Cattel](https://github.com/pedro-cattel)
 
