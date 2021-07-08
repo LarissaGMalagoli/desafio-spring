@@ -17,32 +17,26 @@ public class FollowersListService {
     @Autowired
     SellerService sellerService;
 
-    public FollowersListService(SellerService sellerService) {
-        this.sellerService = sellerService;
-    }
-
-    public FollowersListSellerDto getSellerFollowers(Long id) {
-        Seller seller = sellerService.getById(id);
-
-        List<FollowersListUserDto> sellerFollowers = seller.getFollowers().stream().map(FollowersListUserDto::new).collect(Collectors.toList());
-
-        return new FollowersListSellerDto(seller.getUserId(), seller.getUserName(), sellerFollowers);
-    }
-
     private Comparator<FollowersListUserDto> getComparator(String order){
         if (order == null)
             return FollowersListSort.ASC.getComparator();
-        if (order.equals("desc"))
+        if (order.equals("name_asc"))
+            return FollowersListSort.ASC.getComparator();
+        if (order.equals("name_desc"))
             return FollowersListSort.DESC.getComparator();
         return FollowersListSort.ASC.getComparator();
     }
 
-    public FollowersListSellerDto orderSellerFollowers(Long id, String order) {
-        Comparator<FollowersListUserDto> comparator = getComparator(order);
-        Seller seller = sellerService.getById(id);
+    public List<FollowersListUserDto> getFollowersList(Seller seller, Comparator<FollowersListUserDto> comparator){
+        return seller.getFollowers().stream()
+                .map(FollowersListUserDto::new)
+                .sorted(comparator)
+                .collect(Collectors.toList());
+    }
 
-        List<FollowersListUserDto> sellerFollowers = seller.getFollowers().stream().map(FollowersListUserDto::new).sorted(comparator).collect(Collectors.toList());
-        return new FollowersListSellerDto(seller.getUserId(), seller.getUserName(), sellerFollowers);
+    public FollowersListSellerDto orderSellerFollowers(Long id, String order) {
+        Seller seller = sellerService.getById(id);
+        return new FollowersListSellerDto(seller.getUserId(), seller.getUserName(), getFollowersList(seller, getComparator(order)));
     }
 
 }

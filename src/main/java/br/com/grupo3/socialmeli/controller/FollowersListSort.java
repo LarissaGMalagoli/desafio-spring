@@ -1,5 +1,4 @@
 package br.com.grupo3.socialmeli.controller;
-import br.com.grupo3.socialmeli.dto.FollowersListSellerDto;
 import br.com.grupo3.socialmeli.dto.FollowersListUserDto;
 
 import java.util.Comparator;
