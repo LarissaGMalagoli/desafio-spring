@@ -7,9 +7,9 @@ import java.util.List;
 
 public class UserDto {
 
-    private Long userId;
-    private String userName;
-    private List<Seller> following;
+    private final Long userId;
+    private final String userName;
+    private final List<Seller> following;
 
     public UserDto(User user) {
         this.userId = user.getUserId();

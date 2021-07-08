@@ -14,7 +14,7 @@ public class Controller {
 
     @GetMapping("/teste")
     public void teste(){
-        Seller seller = new Seller();
+        Seller seller = new Seller("user1");
         sellerRepository.save(seller);
     }
 }
