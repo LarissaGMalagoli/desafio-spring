@@ -15,7 +15,9 @@ public class Seller extends Person{
 
     public Seller() {
     }
-
+    public Seller(String userName){
+        setUserName(userName);
+    }
 
     public int getFollowersCount() {
         return followersCount;
@@ -40,6 +42,5 @@ public class Seller extends Person{
     public void setFollowers(List<User> followers) {
         this.followers = followers;
     }
-
 
 }

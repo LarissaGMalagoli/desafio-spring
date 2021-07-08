@@ -8,18 +8,18 @@ import java.time.LocalDate;
 
 public class PostDto {
 
-    private Long postId;
-    private Seller seller;
-    private Product product;
-    private int category;
-    private double price;
-    private boolean hasPromo;
-    private double discount;
-    private LocalDate date;
+    private final Long postId;
+    private final SellerDto sellerDto;
+    private final Product product;
+    private final int category;
+    private final double price;
+    private final boolean hasPromo;
+    private final double discount;
+    private final LocalDate date;
 
     public PostDto(Post post) {
         this.postId = post.getPostId();
-        this.seller = post.getSeller();
+        this.sellerDto = new SellerDto(post.getSeller());
         this.product = post.getProduct();
         this.category = post.getCategory();
         this.price = post.getPrice();
@@ -32,8 +32,8 @@ public class PostDto {
         return postId;
     }
 
-    public Seller getSeller() {
-        return seller;
+    public SellerDto getSellerDto() {
+        return sellerDto;
     }
 
     public Product getProduct() {
